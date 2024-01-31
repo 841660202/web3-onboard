@@ -15,10 +15,12 @@ import { state } from './store/index.js'
 import { addNotification } from './store/actions.js'
 import updateBalances from './update-balances.js'
 import { updateTransaction } from './streams.js'
-
+// 检测是否上链
+// http://t-blog-images.aijs.top/img/202401311441561.webp
 export function handleTransactionUpdates(
   transaction: EthereumTransactionData
 ): void {
+  console.log('handleTransactionUpdates:transaction',transaction);
   const customized = state.get().notify.transactionHandler(transaction)
   const invalid = validateTransactionHandlerReturn(customized)
 

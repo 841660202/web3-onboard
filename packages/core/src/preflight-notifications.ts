@@ -14,7 +14,9 @@ let notificationsArr: Notification[]
 state.select('notifications').subscribe(notifications => {
   notificationsArr = notifications
 })
-
+// 这个函数是用来检查是否有足够的余额，是否有重复的交易，是否有等待批准的交易，是否有交易超时，是否有交易被拒绝
+// 都没问题的话，就返回一个id，这个id是用来标识这个通知的，这个id是唯一的，用来标识这个通知
+// 发送交易后，这个通知就会被移除
 export async function preflightNotifications(
   options: PreflightNotificationsOptions
 ): Promise<string | void> {
@@ -50,10 +52,12 @@ export async function preflightNotifications(
   // or any other notification, then return false from listener functions
 
   const [gas, price] = await gasEstimates(estimateGas, gasPrice)
+  // 这个id是用来标识这个通知的，这个id是唯一的，用来标识这个通知
   const id = createId(nanoid())
   const value = new BigNumber((txDetails && txDetails.value) || 0)
 
   // check sufficient balance if required parameters are available
+  // 检查余额是否足够
   if (balance && gas && price) {
     const transactionCost = gas.times(price).plus(value)
 
@@ -66,6 +70,7 @@ export async function preflightNotifications(
   }
 
   // check previous transactions awaiting approval
+  // 检查之前的交易是否等待批准
   const txRequested = notificationsArr.find(tx => tx.eventCode === 'txRequest')
 
   if (txRequested) {
@@ -76,6 +81,7 @@ export async function preflightNotifications(
   }
 
   // confirm reminder timeout defaults to 20 seconds
+  // 确认提醒超时默认为20秒
   setTimeout(() => {
     const awaitingApproval = notificationsArr.find(
       tx => tx.id === id && tx.eventCode === 'txRequest'

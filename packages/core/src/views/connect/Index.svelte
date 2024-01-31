@@ -628,7 +628,7 @@
           {#if $modalStep$ === 'selectingWallet' || windowWidth <= MOBILE_WINDOW_WIDTH}
             {#if wallets.length}
               <Agreement bind:agreed />
-
+              <!-- 钱包列表 -->
               <div class:disabled={!agreed}>
                 <SelectingWallet
                   {selectWallet}

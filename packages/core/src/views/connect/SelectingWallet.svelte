@@ -65,7 +65,17 @@
     }
   }
 </style>
+<!-- 监听window窗口事件 -->
 
+<!-- 在Svelte框架中，`<svelte:window>`是一个特殊的组件，用于监听window对象（浏览器窗口）的事件。上述代码片段是Svelte的语法，用于绑定浏览器窗口的宽度到一个本地变量`windowWidth`。
+
+让我们分解这行代码：
+
+- `<svelte:window>`：这是Svelte的内置组件，它不会渲染任何实际的HTML元素，而是用来订阅window对象上的事件。
+- `bind:innerWidth`：这是Svelte的绑定指令，用于将一个组件或元素的属性值绑定到一个本地变量。在这个例子中，它将window对象的`innerWidth`属性（即窗口的内部宽度）绑定到了一个变量上。
+- `{windowWidth}`：这是Svelte的语法，表示创建了一个名为`windowWidth`的响应式变量。这个变量将会与window的`innerWidth`保持同步。
+
+当浏览器窗口的大小发生变化时，`innerWidth`属性会更新，由于绑定，`windowWidth`变量也会相应更新。这样，你就可以在Svelte应用中使用`windowWidth`变量来响应窗口大小的变化，例如，用于响应式布局或者条件渲染。 -->
 <svelte:window bind:innerWidth={windowWidth} />
 
 <div class="outer-container">

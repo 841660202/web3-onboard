@@ -1,0 +1,164 @@
+{
+	"files": [
+		{
+			"path": "packages/demo/src/App.svelte",
+			"bookmarks": [
+				{
+					"line": 50,
+					"column": 2,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "packages/core/src/views/connect/Agreement.svelte",
+			"bookmarks": [
+				{
+					"line": 63,
+					"column": 2,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "packages/core/src/views/connect/Index.svelte",
+			"bookmarks": [
+				{
+					"line": 18,
+					"column": 2,
+					"label": ""
+				},
+				{
+					"line": 629,
+					"column": 10,
+					"label": ""
+				},
+				{
+					"line": 631,
+					"column": 10,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "packages/core/src/views/connect/SelectingWallet.svelte",
+			"bookmarks": [
+				{
+					"line": 104,
+					"column": 0,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "packages/core/src/store/actions.ts",
+			"bookmarks": [
+				{
+					"line": 434,
+					"column": 0,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "packages/core/src/index.ts",
+			"bookmarks": [
+				{
+					"line": 227,
+					"column": 2,
+					"label": ""
+				},
+				{
+					"line": 229,
+					"column": 4,
+					"label": ""
+				},
+				{
+					"line": 246,
+					"column": 4,
+					"label": ""
+				},
+				{
+					"line": 274,
+					"column": 2,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "packages/core/src/services.ts",
+			"bookmarks": [
+				{
+					"line": 13,
+					"column": 0,
+					"label": ""
+				},
+				{
+					"line": 40,
+					"column": 1,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "packages/core/src/store/index.ts",
+			"bookmarks": [
+				{
+					"line": 44,
+					"column": 1,
+					"label": ""
+				},
+				{
+					"line": 242,
+					"column": 0,
+					"label": ""
+				},
+				{
+					"line": 247,
+					"column": 1,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "packages/core/src/chain.ts",
+			"bookmarks": [
+				{
+					"line": 11,
+					"column": 3,
+					"label": ""
+				},
+				{
+					"line": 58,
+					"column": 6,
+					"label": ""
+				},
+				{
+					"line": 73,
+					"column": 2,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "packages/transaction-preview/src/index.ts",
+			"bookmarks": [
+				{
+					"line": 208,
+					"column": 0,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "packages/core/rollup.config.js",
+			"bookmarks": [
+				{
+					"line": 11,
+					"column": 2,
+					"label": ""
+				}
+			]
+		}
+	]
+}

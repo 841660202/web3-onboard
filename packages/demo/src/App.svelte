@@ -212,8 +212,10 @@
     environment: Environment.DEVELOPMENT,
     apiKey: '992bbd9146d5de8ad0419f141d9a7ca7'
   })
-
+  // @web3-onboard/core init
   const onboard = Onboard({
+    // https://github.com/blocknative/web3-onboard/pull/1359
+    transactionPreview,
     wallets: [
       metamaskSDKWallet,
       injected,
@@ -249,7 +251,6 @@
       blocto,
       venly
     ],
-    // transactionPreview,
     gas,
     chains: [
       {
@@ -339,7 +340,8 @@
     connect: {
       // disableClose: true,
       // removeWhereIsMyWalletWarning: true,
-      autoConnectAllPreviousWallet: true
+      // autoConnectAllPreviousWallet: true,
+      autoConnectLastWallet: true
     },
     appMetadata: {
       name: 'Blocknative',
@@ -478,7 +480,7 @@
     const estimateGas = () => {
       return ethersProvider.estimateGas(txDetails).then(res => res.toString())
     }
-
+    // 发送交易返回hash
     const transactionHash = await onboard.state.actions.preflightNotifications({
       sendTransaction,
       gasPrice,
@@ -654,9 +656,11 @@
 
 <main>
   <div class="cta">
+    <h1>Web3 Onboard Demo <a href="https://onboard.blocknative.com/docs/getting-started/theming" target="_blank">链接</a></h1>
     <button on:click={() => onboard.connectWallet()} id="connectBtn"
       >Connect Wallet</button
     >
+    <!-- bind:value双向绑定 -->
     <select bind:value={selectedTheme} on:change={() => updateTheme()}>
       {#each themes as theme}
         <option value={theme}>
@@ -664,6 +668,7 @@
         </option>
       {/each}
     </select>
+    <!--  -->
     {#if $wallets$}
       <button
         class="updateBalanceBtn"
@@ -679,7 +684,7 @@
               onboard.state.actions.customNotification({
                 type: 'hint',
                 message: 'This is a custom DApp hint',
-                autoDismiss: 0
+                autoDismiss: 3000
               })}>Send Hint Notification</button
           >
           <button
@@ -689,7 +694,7 @@
                   type: 'pending',
                   message:
                     'This is a custom DApp pending notification to use however you want',
-                  autoDismiss: 0
+                  autoDismiss: 3000
                 })
               setTimeout(
                 () =>
@@ -697,7 +702,7 @@
                     eventCode: 'dbUpdateSuccess',
                     message: 'Updated status for custom notification',
                     type: 'success',
-                    autoDismiss: 0
+                    autoDismiss: 3000
                   }),
                 4000
               )

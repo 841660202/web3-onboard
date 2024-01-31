@@ -56,7 +56,8 @@ export const handleThemeChange = (update: ThemingMap): void => {
     )
   })
 }
-
+// https://developer.mozilla.org/en-US/docs/Web/API/MediaQueryListEvent
+// 监测系统主题变化
 export const watchForSystemThemeChange = (): void => {
   const systemThemeDark = window.matchMedia('(prefers-color-scheme: dark)')
   systemThemeDark.matches

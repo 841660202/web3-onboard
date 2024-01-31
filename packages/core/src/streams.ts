@@ -43,6 +43,7 @@ reset$.pipe(withLatestFrom(wallets$), pluck('1')).subscribe(wallets => {
 })
 
 // keep transactions for all notifications for replacement actions
+// 保持所有通知的交易以进行替换操作
 export const transactions$ = new BehaviorSubject<EthereumTransactionData[]>([])
 
 export function updateTransaction(tx: EthereumTransactionData): void {
@@ -65,7 +66,7 @@ export function removeTransaction(hash: string): void {
   const currentTransactions = transactions$.getValue()
   transactions$.next(currentTransactions.filter(tx => tx.hash !== hash))
 }
-
+// 挂载时
 export const onMount$ = defer(() => {
   const subject = new Subject<void>()
   onMount(() => {
@@ -73,7 +74,7 @@ export const onMount$ = defer(() => {
   })
   return subject.asObservable().pipe(take(1))
 })
-
+//  销毁时
 export const onDestroy$ = defer(() => {
   const subject = new Subject<void>()
   onDestroy(() => {
@@ -81,7 +82,7 @@ export const onDestroy$ = defer(() => {
   })
   return subject.asObservable().pipe(take(1))
 })
-
+//  更新后
 export const afterUpdate$ = defer(() => {
   const subject = new Subject<void>()
   afterUpdate(() => {
@@ -89,7 +90,7 @@ export const afterUpdate$ = defer(() => {
   })
   return subject.asObservable().pipe(takeUntil(onDestroy$))
 })
-
+//  更新前
 export const beforeUpdate$ = defer(() => {
   const subject = new Subject<void>()
   beforeUpdate(() => {

@@ -211,7 +211,7 @@ const transactionPreview: TransactionPreviewModule = (
 ): TransactionPreviewAPI => {
   if (tpOptions) {
     const error = validateTPOptions(tpOptions)
-
+    console.log('error',error);
     if (error) {
       throw error
     }

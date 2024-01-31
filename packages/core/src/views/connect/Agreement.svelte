@@ -60,6 +60,7 @@
 
 {#if showTermsOfService}
   <div class="container flex items-center">
+    <!-- I agree to the Terms & Conditions and Privacy Policy. -->
     <label class="flex">
       <input class="" type="checkbox" bind:checked={agreed} />
       <span>

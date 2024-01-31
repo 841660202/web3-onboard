@@ -311,7 +311,6 @@ const connectAllPreviousWallets = async (
 ): Promise<void> => {
   const activeWalletsList = []
   const parsedWalletList = lastConnectedWallets
-
   if (!connect.autoConnectAllPreviousWallet) {
     API.connectWallet({
       autoSelect: { label: parsedWalletList[0], disableModals: true }
@@ -343,6 +342,7 @@ function mountApp(theme: Theme, disableFontDownload: boolean) {
   }
 
   if (!customElements.get('onboard-v2')) {
+    console.log('onboard-v2 define');
     customElements.define('onboard-v2', Onboard)
   }
 
@@ -463,8 +463,18 @@ function mountApp(theme: Theme, disableFontDownload: boolean) {
       `Element with query ${containerElementQuery} does not exist.`
     )
   }
-
+  // #w3o-connect-modal-container is the container ID used by Onboard
+  // 登录成功后展示的弹窗
   containerElement.appendChild(onboard)
+  // 在Svelte中，创建一个新的应用实例通常是在你的主要JavaScript文件（例如 main.js 或 index.js）中进行的，
+  // 这是整个Svelte应用的入口点。这行代码实际上是在初始化你的Svelte应用。
+
+  // 这里的 App 是你的Svelte应用的根组件，它是由Svelte编译器从你的 App.svelte 文件生成的默认导出类。
+  // 你需要创建一个这个类的实例来启动应用。
+
+  // new App({ target }) 这行代码的意思是创建 App 组件的一个新实例，并将其挂载到DOM上。
+  // 这里的 target 是一个DOM元素，它是你的Svelte应用将要挂载的地方。这通常是在你的 index.html 文件中的一个空的 div 元素。
+
 
   const app = new App({
     target

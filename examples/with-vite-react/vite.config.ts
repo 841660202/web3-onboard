@@ -8,6 +8,13 @@ export default defineConfig({
   plugins: [react(), nodePolyfills()],
   optimizeDeps: {
     exclude: ['@ethersproject/hash', 'wrtc'],
-    include: ['js-sha3', '@ethersproject/bignumber']
+    include: ['js-sha3', '@ethersproject/bignumber'],
+    esbuildOptions: {
+      target: 'es2020'
+    }
+  },
+
+  build: {
+    target: 'es2020'
   }
 })

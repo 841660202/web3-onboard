@@ -21,7 +21,13 @@ export async function getBNMulitChainSdk(): Promise<MultiChain | null> {
     blocknativeMultiChainSdk = Blocknative.multichain({
       apiKey: configuration.apiKey
     })
-
+    // 这个API返回了好多数据
+    // TODO: http://t-blog-images.aijs.top/img/202401311441561.webp
+    // 手动从metamask中发起交易，这个API就会返回数据
+    // http://t-blog-images.aijs.top/img/202401311448961.webp
+    // TODO: 看看 bnc-sdk 做了什么事情
+    // https://github.com/blocknative/sdk
+    // bnc-sdk 是一个用来检测交易是否上链的工具, github上简介是通过websocket来检测交易是否上链
     blocknativeMultiChainSdk.transactions$.subscribe(handleTransactionUpdates)
   }
 

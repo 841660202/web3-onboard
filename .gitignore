@@ -3,6 +3,6 @@ node_modules
 dist/
 package-lock.json
 .rpt2_cache
-.vscode
+.vscode/settings.json
 yarn-error.log
 .env

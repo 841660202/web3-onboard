@@ -264,6 +264,7 @@ export function trackWallet(
 
         // Unsubscribe with timeout of 60 seconds
         // to allow for any currently inflight transactions
+        // 60秒取消订阅，以允许任何当前正在进行的事务
         wallet.accounts.forEach(({ address }) => {
           sdk.unsubscribe({
             id: address,
@@ -273,6 +274,7 @@ export function trackWallet(
         })
 
         // resubscribe for new chainId
+        // 重新订阅新的chainId
         wallet.accounts.forEach(({ address }) => {
           try {
             sdk.subscribe({
@@ -304,6 +306,7 @@ export function trackWallet(
   })
 
   // when chain changes get ens/uns and balance for each account for wallet
+  // 当链改变时，获取钱包中每个帐户的ens/uns和余额
   chainChanged$
     .pipe(
       switchMap(async chainId => {
